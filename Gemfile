@@ -34,6 +34,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'capybara'
 end
 
 group :development do
