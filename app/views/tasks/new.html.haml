@@ -1,0 +1,10 @@
+%h1= "New Task"
+%p= "Fill the following fields to add a new task to list"
+= form_with scope: :task, url: tasks_path do |form|
+  %div
+    = form.label :description
+    = form.text_field :description
+  %div
+    = form.label :priority
+    = form.select :priority, [['High', 1], ['Medium', 2], ['Low', 3]]
+  = form.submit 'Save!'

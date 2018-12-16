@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-describe "Task creator", type:feature do
+RSpec.describe "Task creator", type: :feature do
   scenario "an user create a new task" do
     visit new_task_path
-    fill_in "Description", with: "A new task"
-    fill_in "Priority", with: "Medium"
+    fill_in "task[description]", with: "A new task"
+    select "Medium", from: "task[priority]"
 
-    click_on "save"
+    click_on "Save!"
 
-    expect(current_path).to eq(task_path)
-    expect(page).to have_content("New task created successfully")
+    expect(current_path).to eq(tasks_path)
+    expect(page).to have_content("New task created succesfully")
     expect(Task.all.count).to eq(1)
   end
 end
