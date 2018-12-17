@@ -1,11 +1,11 @@
-%h2= "New Task"
-%p= "Fill the following fields to add a new task to list"
-= form_with scope: :task, url: tasks_path, class: "form-style" do |form|
+%h1= "Editing task"
+%p= "Change the current data"
+= form_with model: @task, url: task_path(@task), method: :patch, class: "form-style" do |form|
   %div
     = form.label :description
     = form.text_field :description
   %div
     = form.label :priority
     = form.select :priority, [['High', 'High'], ['Medium', 'Medium'], ['Low', 'Low']]
-  = form.submit "Save!", class: "submit"
+  = form.submit "Update!", class: "submit"
   = link_to "Back", tasks_path, class: "back-action"
